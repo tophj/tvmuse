@@ -2,8 +2,24 @@
 
 
 
-/************* Try and force the page to run showAllComments(). Won't display hidden spam links, ***
-************** but will display all comments at the bottom    ************************************* */
+
+/* ------ Show all the non-spam comments on the webpage ---------*/ 
+
+
+/* Work-around for running functions defined outside the DOM */
+function main(){
+
+
+  showAllComments();
+
+}
+var script = document.createElement('script');
+script.appendChild(document.createTextNode('('+ main +')();'));
+document.head.appendChild(script);
+
+/* ------- All comments should be shown ------------ */
+
+
 
 
 /* Loops through HTML and extracts all the comment links */
@@ -29,21 +45,33 @@ function censorText(textNode)
   var v = textNode.innerHTML;
   var changed = false;
   var regexLinks = /(https?:\/\/[^\s]+)/g;
-  var checkSpam = "This comment is hidden because it's likely to be inappropriate or spam."
+  var checkSpam = "This comment is hidden because it's likely to be inappropriate or spam.";
 
-  var spam = v.search(checkSpam)
-  if(spam == '-1'){
+  var spam = v.search(checkSpam);
 
-    var findLinks = v.match(regexLinks)
 
-    if(findLinks == null){
+  if(spam >= 0){
+    // View possible spam / links
+    var button = $(textNode).find("a");
+    button[0].click();
 
-      // Un-commenting this changes the text under the black censor to "#"
-      //v = v.replace(/./gm, "#");
-      changed = true;
-
-    }
   }
+
+  var findLinks = v.match(regexLinks);
+
+  if(findLinks == null){
+
+    // Un-commenting this changes the text under the black censor to "#"
+    //v = v.replace(/./gm, "#");
+    changed = true;
+
+  }
+  
+  
+
+
+
+  
 
   textNode.innerHTML = v;
 
