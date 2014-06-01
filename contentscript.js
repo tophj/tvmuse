@@ -1,43 +1,33 @@
 
+
+
+
 /************* Try and force the page to run showAllComments(). Won't display hidden spam links, ***
 ************** but will display all comments at the bottom    ************************************* */
 
 
+/* Loops through HTML and extracts all the comment links */
+ $(function(){
+
+  var comments = $("li").find("p");
+
+   for(var i = 0; i < comments.length; i++){
+
+     censorText(comments[i]);
+
+   }
+
+ });
 
 
-walk(document.body);
-
-// DOM walking function 
-function walk(node) 
-{
-  var child, next;
-
-  switch ( node.nodeType )  
-  {
-    case 1:  // Element
-    case 9:  // Document
-    case 11: // Document fragment
-      child = node.firstChild;
-      while ( child ) 
-      {
-        next = child.nextSibling;
-        walk(child);
-        child = next;
-      }
-      break;
-
-    case 3: // Text node
-      censorText(node);
-      break;
-  }
-}
-
-
-/* Replaces all non-links with a '#' */
+/* Replaces all non-links with a black bar */
 function censorText(textNode) 
 {
-  var v = textNode.nodeValue;
 
+
+
+  var v = textNode.innerHTML;
+  var changed = false;
   var regexLinks = /(https?:\/\/[^\s]+)/g;
   var checkSpam = "This comment is hidden because it's likely to be inappropriate or spam."
 
@@ -47,16 +37,20 @@ function censorText(textNode)
     var findLinks = v.match(regexLinks)
 
     if(findLinks == null){
-      v = v.replace(/./gm, "#");
+
+      // Un-commenting this changes the text under the black censor to "#"
+      //v = v.replace(/./gm, "#");
+      changed = true;
 
     }
-
-  }
-  else{
-    v = "Either link or spam. ----> "
   }
 
-  textNode.nodeValue = v;
+  textNode.innerHTML = v;
+
+  if(changed){
+    textNode.style.background = 'black';
+  }
+  //return changed;
 }
 
 //alert("Got here");
