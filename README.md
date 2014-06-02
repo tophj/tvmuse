@@ -1,11 +1,11 @@
 # TVMuse Comment Blocker
 
-### Chrome Web Store Link: 
+## Chrome Web Store Link: 
 
 https://chrome.google.com/webstore/detail/tvmuse-comment-blocker/dpolfnbfjfheidaopjlpijpgkpklacek?authuser=1
 
 
-### Description:
+## Description:
 
 Spoilers! Spoilers everywhere!
 
@@ -17,7 +17,24 @@ In addition, the summary section is also blocked in case the page creator was fe
 
 
 
+## Pictures:
 
+
+### Before:
+
+
+![Alt text](/Before\ Summary.png "Before Summary")
+
+![Alt text](/Before\ Comments.png "Before Comments")
+
+[<img src = "/Before\ Summary.png">]
+
+### After:
+
+
+![Alt text](/After\ Summary.png "After Summary")
+
+![Alt text](/After\ Comments.png "After Comments")
 
 
 
