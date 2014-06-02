@@ -1,8 +1,11 @@
 # TVMuse Comment Blocker
 
-## Chrome Web Store Link: https://chrome.google.com/webstore/detail/tvmuse-comment-blocker/dpolfnbfjfheidaopjlpijpgkpklacek?authuser=1
+### Chrome Web Store Link: 
 
-## Description:
+https://chrome.google.com/webstore/detail/tvmuse-comment-blocker/dpolfnbfjfheidaopjlpijpgkpklacek?authuser=1
+
+
+### Description:
 
 Spoilers! Spoilers everywhere!
 
