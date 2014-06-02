@@ -20,20 +20,33 @@ In addition, the summary section is also blocked in case the page creator was fe
 ## Pictures:
 
 
-### Before:
+### Before, Summary Section:
 
 
 ![Alt text](/Before\ Summary.png "Before Summary")
 
-![Alt text](/Before\ Comments.png "Before Comments")
 
-
-### After:
+### After, Summary Section:
 
 
 ![Alt text](/After\ Summary.png "After Summary")
 
+
+
+### Before, Comment Section:
+
+
+![Alt text](/Before\ Comments.png "Before Comments")
+
+
+### After, Comment Section:
+
 ![Alt text](/After\ Comments.png "After Comments")
+
+
+
+
+
 
 
 
