@@ -43,7 +43,6 @@ $(function(){
 
   for(var i = 0; i < comments.length ; i++){
 
-    //censorText(comments[i]);
     var parentName = $(comments[i]).parent().attr('name');
 
     if(parentName != "fcomments"){
