@@ -23,29 +23,50 @@ document.head.appendChild(script);
 
 
 /* Loops through HTML and extracts all the comment links */
- $(function(){
+$(function(){
+
+
+  // Censors the summary
+  var summary = $("li").find("div");
+
+  for(var i = 0; i < summary.length; i++){
+
+    var parentClass = $(summary[i]).parent().attr('class');
+    if(parentClass === 'cfix mb_1'){
+      summary[i].style.background = 'black';
+    }
+
+  }
+
 
   var comments = $("li").find("p");
 
-   for(var i = 0; i < comments.length; i++){
+  for(var i = 0; i < comments.length ; i++){
 
-     censorText(comments[i]);
+    //censorText(comments[i]);
+    var parentName = $(comments[i]).parent().attr('name');
 
-   }
+    if(parentName != "fcomments"){
 
- });
+      censorText(comments[i]);
+
+    }
+  }
+
+
+
+});
 
 
 /* Replaces all non-links with a black bar */
 function censorText(textNode) 
 {
 
-
-
   var v = textNode.innerHTML;
   var changed = false;
   var regexLinks = /(https?:\/\/[^\s]+)/g;
   var checkSpam = "This comment is hidden because it's likely to be inappropriate or spam.";
+
 
   var spam = v.search(checkSpam);
 
@@ -66,43 +87,26 @@ function censorText(textNode)
     changed = true;
 
   }
-  
+  else{
+
+    var returnString = "";
+    for(var i = 0; i < findLinks.length;i++){
+      returnString += findLinks[i];
+
+    }
+    v = returnString;
+
+  }
   
 
-
-
-  
 
   textNode.innerHTML = v;
 
   if(changed){
     textNode.style.background = 'black';
   }
-  //return changed;
+
 }
 
-//alert("Got here");
-
-
-// var injectedCode = 'sendAction('2h', null, null, null, null, new Array('672007'))';
-// var script = document.createElement('script');
-// script.appendChild(document.createTextNode('('+ injectedCode +')();'));
-// (document.body || document.head || document.documentElement).appendChild(script);
-
-// var evt = document.createEvent('Event');
-// evt.initEvent('myCustomEvent', true,false);
-
-// document.dispatchEvent(evt);
-// document.showAllComments();
-
-// document.addEventListener('myCustomEvent', function()){
-
-//   //alert("HELLO");
-
-
-
-// }
-
-//var x = document.getElementById("showAllComments");
 
 
