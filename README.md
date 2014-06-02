@@ -27,7 +27,6 @@ In addition, the summary section is also blocked in case the page creator was fe
 
 ![Alt text](/Before\ Comments.png "Before Comments")
 
-[<img src = "/Before\ Summary.png">]
 
 ### After:
 
