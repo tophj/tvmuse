@@ -9,7 +9,6 @@
 /* Work-around for running functions defined outside the DOM */
 function main(){
 
-
   showAllComments();
 
 }
@@ -34,35 +33,49 @@ $(function(){
     }
   }
 
-
+  // Censors the comments
   var comments = $("li").find("p");
   for(var i = 0; i < comments.length ; i++){
 
     var parentName = $(comments[i]).parent().attr('name');
 
     if(parentName != "fcomments"){
-      censorText(comments[i]);
+
+      var textNode = checkSpam(comments[i]);
+      censorText(textNode);
     }
   }
 });
 
 
+/* Expands a comment and checks if it's spam or not */
+function checkSpam(textNode){
+
+  var v = textNode.innerHTML;
+  var checkSpam = "This comment is hidden because it's likely to be inappropriate or spam.";
+  var spam = v.search(checkSpam);
+  if(spam >= 0){
+    
+    var button = $(textNode).find("a");
+
+    if(button[0] != null){
+       button[0].click();
+
+    }
+    alert(button[0]);
+   
+  }
+  
+  return textNode;
+
+}
+
 /* Replaces all non-links with a black bar */
-function censorText(textNode) 
-{
+function censorText(textNode) {
 
   var v = textNode.innerHTML;
   var changed = false;
   var regexLinks = /(https?:\/\/[^\s]+)/g;
-  var checkSpam = "This comment is hidden because it's likely to be inappropriate or spam.";
-  var spam = v.search(checkSpam);
-
-
-  if(spam >= 0){
-    // View possible spam / links
-    var button = $(textNode).find("a");
-    button[0].click();
-  }
 
   var findLinks = v.match(regexLinks);
 
