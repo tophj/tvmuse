@@ -62,7 +62,6 @@ function checkSpam(textNode){
        button[0].click();
 
     }
-    alert(button[0]);
    
   }
   
