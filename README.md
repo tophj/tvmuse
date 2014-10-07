@@ -45,7 +45,12 @@ In addition, the summary section is also blocked in case the page creator was fe
 
 
 
+### Changelog
 
+v1.1 : 
+
+* Fixed a bug causing a comment with multiple links to fail.
+* Valid non hyperlink links are now hyperlinks
 
 
 

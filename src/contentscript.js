@@ -3,17 +3,6 @@
  ------  Shows all the non-spam comments on the webpage ---------
  */ 
 
-
-
-/* TODO: 
-Add blur while censoring is loading
-maybe make shows searchable from a button
-fix race condition with ajax callbacks
-hover over text to view
-*/
-
-
-
 /* Work-around for running functions defined outside the DOM */
 function main(){
   showAllComments();
@@ -65,6 +54,7 @@ function checkSpam(textNode){
        button[0].click();
 
     } 
+    
   }
   return textNode;
 }
