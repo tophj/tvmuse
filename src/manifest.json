@@ -5,8 +5,7 @@
   "content_scripts": [ 
     {
       "js": [ "jquery.min.js", "contentscript.js" ],
-      "matches": [ "http://www.tvmuse.com/tv-shows/*/*/*" ,"http://www.tvmuse.com/movies/*", 
-      "http://www.anime/*/*/*", "http://www.tvmuse.com/documentaries/*"],
+      "matches": [ "http://www.tvmuse.com/tv-shows/*/*/*" ,"http://www.tvmuse.com/movies/*","http://www.tvmuse.com/documentaries/*"],
       "run_at": "document_end"
     } 
   ],
